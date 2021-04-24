@@ -36,6 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string :name
       # t.text :introduction
       # add_column :name, :introduction, :profile_image_id
+      # ↑はrails db:migrate する前に記入しないといけない。
+      # 記入後に修正したい場合はこのmigrateをdownさせて修正後、db:migrateでupにする。
 
       t.timestamps null: false
     end
