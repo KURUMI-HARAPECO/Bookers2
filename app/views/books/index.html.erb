@@ -1,0 +1,44 @@
+<body>
+  <main>
+        <p>Welcome! You have signed up successfully.</p>
+    <div>
+      <div>
+        <div>
+          <h2>User info</h2>
+          <table>
+            <tr><img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" /></tr>
+            <tr>
+        	  <th>name</th>
+          	<th>introduction</th>
+            </tr>
+          </table>
+          <div>
+            <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_36770" href="/users/36770/edit"></a>
+          </div>
+          <h2>New book</h2>
+          <%= form_with model: @book, local:true do |f| %>
+          <th>Title</th>
+          <%= f.text_field :title %>
+          <th>Opinion</th>
+          <%= f.text_area :body %>
+          <%= f.submit '投稿' %>
+          <% end %>
+        </div>
+        <div>
+          <h2>Books</h2>
+          <table>
+            <div>
+              <h4>Title</h4>
+              <h4>opinion</h4>
+            </div>
+            <% @books.each do |book| %>
+            <div><%= book.title %></div>
+            <div><%= book.body %></div>
+            <div><%= link_to "show", book_path(book.id) %></div>
+          <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
