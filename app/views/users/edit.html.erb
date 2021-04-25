@@ -1,43 +1,11 @@
-  <main>
-    <p id="notice"></p>
-    <div class='container'>
-      <div class='row'>
-        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-        <h2>User info</h2>
-        <form enctype="multipart/form-data" action="/users/37386" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="OsYhDEnuwdYYe5ybhuEiPCl83n0Few/o3T9QG2ym7jFYH7ofxwCvzJnRxhxBNhF3Y58YoU85ds+q9Z5kcx05zQ==" />
-        <%= form_with model:@user, local:true do |f| %>
-          <div class="form-group">
-            <label for="user_name">Name</label>
-            <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-          </div>
-          <div class="form-group">
-            <label for="user_image">Image</label>
-            <input value="{}" data-reference="f5f11083920367cfafebd72e90371630" type="hidden" name="user[profile_image]" /><input class="form-control-file user_image" data-reference="f5f11083920367cfafebd72e90371630" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image" />
-          </div>
-          <div class="form-group">
-            <label for="user_introduction">Introduction</label>
-            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-            <label for="inputImage">ProfileImage</label>
-            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-          </div>
-          <div class="form-group">
-          <%= f.submit "変更を保存" %>
-          <% end %>
-          </div>
-        </form>
-        </div>
-      </div>
-    </div>
-</main>
-<% @users.each do |user| %>
-<div>
-  <%= link_to user_path(post_image.id) do %>
-    <%= attachment_image_tag user, :image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
-  <p>ショップ名：<%= user.shop_name %></p>
-  <p>説明：<%= user.caption %></p>
-  <p>ユーザーネーム：<%= user.user.name %></p>
-</div>
+
+<h1>User info</h1>
+<%= form_with model: @user, local:true do |f| %>
+  <th>Name</th>
+  <%= f.text_field :name %>
+  <th>Image</th>
+  <%= f.attachment_field :profile_image %>
+  <th>Introduction</th>
+  <%= f.text_area :introduction %>
+  <%= f.submit 'Update User' %>
 <% end %>
-<%= paginate @users %>

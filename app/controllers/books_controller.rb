@@ -11,8 +11,10 @@ class BooksController < ApplicationController
   # end
 
   def index
-    @book = Book.new
-    @books = Book.all
+     @book = Book.new
+     @books = Book.all
+     @user = current_user
+    # Userを以てくる
   end
 
 #   def show
