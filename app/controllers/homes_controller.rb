@@ -6,10 +6,4 @@ class HomesController < ApplicationController
   def about
   end
 
-  def index
-    @book = Book.all
-  end
-
-  def show
-  end
 end

@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   # has_manyの後には、1:Nの関係になるモデル名を複数形で記述します。
   attachment :profile_image
+
+  validates :name, uniqueness: true,length: { minimum: 2, maximum: 20}
+  validates :introduction, length: { maximum: 50}
 end
