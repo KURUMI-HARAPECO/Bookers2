@@ -10,10 +10,10 @@
 	  <th><%= user.introduction %></th>
   </tr>
 </table>
-<!--%= link_to '', user, class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_37685" %>-->
-<% if user.id == current_user.id %>
-  <%= link_to '', edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_37685" %>
-  <% else %>
-  <%= link_to '', user_path(current_user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_37685" %>
-<% end %>
+<%= link_to '', edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_37685" %>
+<!--% if user.id == current_user.id %>-->
+<!--  %= link_to '', edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_37685" %>-->
+<!--  % else %>-->
+<!--  %= link_to '', user_path(current_user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_37685" %>-->
+<!--% end %>-->
 <!--検索rails　ページ遷移　コントローラーでする-->
